@@ -64,10 +64,13 @@
                 <p class="help-block">提示：日历下面的今天可以直接定位到当前时间</p>
                 <p style="text-align:center;"><input type="button" onclick="submit();" class="btn btn-default" value="计算"></p>
             </div>
+            
+            <div id="resultDiv"></div>
+            
             <!-- 返回结果 -->
 		   	<div class="alert alert-success alert-dismissable" id="result" style="display:none;">
 			   <button type="button" class="close" data-dismiss="alert" 
-			      aria-hidden="true">
+			      aria-hidden="true" onclick="$(this).parent().fadeOut(800);">
 			      &times;
 			   </button>
 			   <span></span>

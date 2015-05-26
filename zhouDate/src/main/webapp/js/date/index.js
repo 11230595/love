@@ -31,7 +31,9 @@ function submit(){
 		"startTime":startTime,
 		"endTime":endTime
 	},function(data){
-		$("#result").find("span").html(startTime + "  到    " + endTime + "  共   <font color='red'> " + data.date + "</font>  ---如果您喜欢该站请Ctrl+D收藏。");
-		$("#result").fadeIn(800);
+		var template = $("#result").clone();
+		template.find("span").html(startTime + "  到    " + endTime + "  共   <font color='red'> " + data.date + "</font>  ---如果您喜欢该站请Ctrl+D收藏。");
+		template.fadeIn(800);
+		$("#resultDiv").append(template);
 	});
 }

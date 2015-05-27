@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.love.entity.User;
 import com.love.service.UserService;
@@ -22,11 +23,8 @@ public class IndexController {
 	 * @return
 	 */
 	@RequestMapping(value="/index",method={RequestMethod.GET,RequestMethod.POST})
-	public @ResponseBody String index(@PathVariable String userCode, @PathVariable String userName) {
-		User user = new User();
-		System.out.println(userCode);
-		System.out.println(userName);
-		return "success";
+	public ModelAndView index() {
+		return new ModelAndView("index");
 	}
 	
 }

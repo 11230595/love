@@ -57,5 +57,5 @@
 	<mvc:resources mapping="/templates/**" location="/templates/" />  
 	<mvc:resources mapping="/images/**" location="/images/" />  
 	<mvc:resources mapping="/love/**" location="/love/" />  
-	<mvc:resources mapping="/product/**" location="/product/" /> 
+	<mvc:resources mapping="/bootstrap/**" location="/bootstrap/" /> 
 </beans>

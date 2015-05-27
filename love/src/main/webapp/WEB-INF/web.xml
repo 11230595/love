@@ -44,6 +44,10 @@
   <!-- mvc 映射start -->
   <servlet-mapping>
     <servlet-name>springmvc</servlet-name>
+    <url-pattern>/index</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>springmvc</servlet-name>
     <url-pattern>/</url-pattern>
   </servlet-mapping>
   <!-- mvc 映射end -->

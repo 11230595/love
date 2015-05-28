@@ -2,7 +2,7 @@
 <html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>${template.title!''}</title>
+<title>dovip.top-提供模板</title>
 <link type="text/css" rel="stylesheet" href="${request.contextPath}/love/1/renxi/default.css">
 <script type="text/javascript" src="${request.contextPath}/love/1/renxi/jquery.min.js"></script>
 <script type="text/javascript" src="${request.contextPath}/love/1/renxi/jscex.min.js"></script>

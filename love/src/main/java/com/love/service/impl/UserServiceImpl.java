@@ -50,5 +50,11 @@ public class UserServiceImpl implements UserService {
 	public User findUserByEmail(String email) {
 		return userMapper.findUserByEmail(email);
 	}
+	/**
+	 * 登陆
+	 */
+	public User login(String userCode, String password) {
+		return userMapper.login(userCode,password);
+	}
 
 }

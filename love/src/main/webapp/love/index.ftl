@@ -22,32 +22,8 @@
 <!-- NAVBAR
 ================================================== -->
   <body>
-    <div class="navbar-wrapper">
-      <div class="container">
-
-        <!--<nav class="navbar navbar-inverse navbar-static-top">-->
-        <nav class="navbar navbar-inverse navbar-fixed-top">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              <a class="navbar-brand" href="${request.contextPath}">dovip.top</a>
-            </div>
-            <div id="navbar" class="navbar-collapse collapse">
-              <ul class="nav navbar-nav">
-                <li class="active"><a href="${request.contextPath}">首页</a></li>
-                <li><a href="#about">关于</a></li>
-              </ul>
-            </div>
-          </div>
-        </nav>
-
-      </div>
-    </div>
+  	<!-- 头信息 -->
+    <#include "template/head.ftl">
 
 
     <!-- Carousel
@@ -111,6 +87,7 @@
         <div class="col-md-7">
           <h2 class="featurette-heading">模板一， <span class="text-muted">使用规则</span></h2>
           <p class="lead">您可以填入右侧红色文字显示的部分，您和他/她开始的时间，既可以生成右边的模板和和网址。</p>
+          <p><a class="btn btn-default" href="${request.contextPath}/create/1" role="button" target="_blank">去生成 &raquo;</a></p>
         </div>
         <div class="col-md-5">
           <img class="featurette-image img-responsive center-block" src="${request.contextPath}/images/a1.png" alt="模板一">
@@ -123,6 +100,7 @@
         <div class="col-md-7 col-md-push-5">
           <h2 class="featurette-heading">模板二， <span class="text-muted">使用规则</span></h2>
           <p class="lead">您可以填入左侧绿色文字显示的部分，您和他开始的时间，既可以生成左侧的模板和网址。</p>
+          <p><a class="btn btn-default" href="${request.contextPath}/create/2" role="button" target="_blank">去生成 &raquo;</a></p>
         </div>
         <div class="col-md-5 col-md-pull-7">
           <img class="featurette-image img-responsive center-block" src="${request.contextPath}/images/b1.png" alt="模板二">
@@ -148,10 +126,8 @@
 
 
       <!-- FOOTER -->
-      <footer>
-        <p class="pull-right"><a href="#">Back to top</a></p>
-        <p>&copy; 2014 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
-      </footer>
+      <!-- 地脚信息 -->
+  	  <#include "template/foot.ftl">
 
     </div><!-- /.container -->
 

@@ -1,5 +1,7 @@
 package com.love.mapper;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.love.entity.User;
 
 public interface UserMapper {
@@ -18,4 +20,6 @@ public interface UserMapper {
 	User findUserByUserCode(String userCode);
 
 	User findUserByEmail(String email);
+
+	User login(@Param("userCode") String userCode, @Param("password") String password);
 }

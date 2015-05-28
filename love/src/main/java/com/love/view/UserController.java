@@ -8,8 +8,10 @@ import java.util.UUID;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -38,6 +40,14 @@ public class UserController {
 	@RequestMapping(value="/zc",method={RequestMethod.GET,RequestMethod.POST})
 	public ModelAndView zc() {
 		return new ModelAndView("zhuce");
+	}
+	/**
+	 * 跳转到登陆页面
+	 * @return
+	 */
+	@RequestMapping(value="/login",method={RequestMethod.GET,RequestMethod.POST})
+	public ModelAndView login() {
+		return new ModelAndView("login");
 	}
 	
 	/**
@@ -95,6 +105,28 @@ public class UserController {
 		} catch (Exception e) {
 			logger.info(e);
 			map.put("respCode", 1);
+		}
+		
+		return map;
+	}
+	
+	/**
+	 * 登陆
+	 * @return
+	 */
+	@RequestMapping(value="/signin",method={RequestMethod.GET,RequestMethod.POST})
+	public @ResponseBody Map<String, Object> signin(HttpServletRequest request,
+			@RequestParam String userCode, @RequestParam String password,@RequestParam(required=false) String retrunUrl) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		
+		User user = userService.login(userCode,password);
+		
+		if(user != null){
+			map.put("respCode", 0); //登陆成功
+			map.put("returnUrl", retrunUrl);
+			request.getSession().setAttribute("user", user);
+		}else {
+			map.put("respCode", 1);	//登陆失败
 		}
 		
 		return map;

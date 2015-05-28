@@ -22,9 +22,18 @@ public class IndexController {
 	 * 首页
 	 * @return
 	 */
-	@RequestMapping(value="/index",method={RequestMethod.GET,RequestMethod.POST})
+	@RequestMapping(value="index",method={RequestMethod.GET,RequestMethod.POST})
 	public ModelAndView index() {
 		return new ModelAndView("index");
+	}
+	
+	/**
+	 * 生成页面
+	 * @return
+	 */
+	@RequestMapping(value="create/{flag}",method={RequestMethod.GET,RequestMethod.POST})
+	public ModelAndView create(@PathVariable int flag) {
+		return new ModelAndView("create","flag",flag);
 	}
 	
 }

@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.love.mapper.TemplateMapper" >
+  <resultMap id="BaseResultMap" type="com.love.entity.Template" >
+    <id column="ID" property="id" jdbcType="VARCHAR" />
+    <result column="USER_ID" property="userId" jdbcType="VARCHAR" />
+    <result column="USER_CODE" property="userCode" jdbcType="VARCHAR" />
+    <result column="WEB_CODE" property="webCode" jdbcType="VARCHAR" />
+    <result column="TITLE" property="title" jdbcType="VARCHAR" />
+    <result column="TEMP_NUM" property="tempNum" jdbcType="INTEGER" />
+    <result column="U_NAME" property="uName" jdbcType="VARCHAR" />
+    <result column="M_NAME" property="mName" jdbcType="VARCHAR" />
+    <result column="CONTENT" property="content" jdbcType="VARCHAR" />
+    <result column="DATE" property="date" jdbcType="VARCHAR" />
+    <result column="SYS" property="sys" jdbcType="VARCHAR" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, USER_ID, USER_CODE, WEB_CODE, TITLE, TEMP_NUM, U_NAME, M_NAME, CONTENT, DATE, 
+    SYS, CREATE_TIME
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from template
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <!-- 根据webCode查询模板 -->
+  <select id="findTempByWebCode" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from template
+    where web_code = #{webCode,jdbcType=VARCHAR}
+  </select>
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from template
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.love.entity.Template" >
+    insert into template (ID, USER_ID, USER_CODE, 
+      WEB_CODE, TITLE, TEMP_NUM, 
+      U_NAME, M_NAME, CONTENT, 
+      DATE, SYS, CREATE_TIME
+      )
+    values (#{id,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, #{userCode,jdbcType=VARCHAR}, 
+      #{webCode,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{tempNum,jdbcType=INTEGER}, 
+      #{uName,jdbcType=VARCHAR}, #{mName,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, 
+      #{date,jdbcType=VARCHAR}, #{sys,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.love.entity.Template" >
+    insert into template
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="userId != null" >
+        USER_ID,
+      </if>
+      <if test="userCode != null" >
+        USER_CODE,
+      </if>
+      <if test="webCode != null" >
+        WEB_CODE,
+      </if>
+      <if test="title != null" >
+        TITLE,
+      </if>
+      <if test="tempNum != null" >
+        TEMP_NUM,
+      </if>
+      <if test="uName != null" >
+        U_NAME,
+      </if>
+      <if test="mName != null" >
+        M_NAME,
+      </if>
+      <if test="content != null" >
+        CONTENT,
+      </if>
+      <if test="date != null" >
+        DATE,
+      </if>
+      <if test="sys != null" >
+        SYS,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="userCode != null" >
+        #{userCode,jdbcType=VARCHAR},
+      </if>
+      <if test="webCode != null" >
+        #{webCode,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="tempNum != null" >
+        #{tempNum,jdbcType=INTEGER},
+      </if>
+      <if test="uName != null" >
+        #{uName,jdbcType=VARCHAR},
+      </if>
+      <if test="mName != null" >
+        #{mName,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null" >
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="date != null" >
+        #{date,jdbcType=VARCHAR},
+      </if>
+      <if test="sys != null" >
+        #{sys,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.love.entity.Template" >
+    update template
+    <set >
+      <if test="userId != null" >
+        USER_ID = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="userCode != null" >
+        USER_CODE = #{userCode,jdbcType=VARCHAR},
+      </if>
+      <if test="webCode != null" >
+        WEB_CODE = #{webCode,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        TITLE = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="tempNum != null" >
+        TEMP_NUM = #{tempNum,jdbcType=INTEGER},
+      </if>
+      <if test="uName != null" >
+        U_NAME = #{uName,jdbcType=VARCHAR},
+      </if>
+      <if test="mName != null" >
+        M_NAME = #{mName,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null" >
+        CONTENT = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="date != null" >
+        DATE = #{date,jdbcType=VARCHAR},
+      </if>
+      <if test="sys != null" >
+        SYS = #{sys,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.love.entity.Template" >
+    update template
+    set USER_ID = #{userId,jdbcType=VARCHAR},
+      USER_CODE = #{userCode,jdbcType=VARCHAR},
+      WEB_CODE = #{webCode,jdbcType=VARCHAR},
+      TITLE = #{title,jdbcType=VARCHAR},
+      TEMP_NUM = #{tempNum,jdbcType=INTEGER},
+      U_NAME = #{uName,jdbcType=VARCHAR},
+      M_NAME = #{mName,jdbcType=VARCHAR},
+      CONTENT = #{content,jdbcType=VARCHAR},
+      DATE = #{date,jdbcType=VARCHAR},
+      SYS = #{sys,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

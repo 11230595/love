@@ -61,7 +61,7 @@ public class TemplateController {
 		if(StringUtils.isNotBlank(date)){
 			String[] dates = date.split(",");
 			year = Integer.parseInt(dates[0]);
-			month = Integer.parseInt(dates[1]);
+			month = Integer.parseInt(dates[1])-1;
 			day = Integer.parseInt(dates[2]);
 		}
 		
@@ -81,7 +81,7 @@ public class TemplateController {
 	}
 	
 	/**
-	 * 注册
+	 * 注册二级域名
 	 * @return
 	 */
 	@RequestMapping(value="template/saveTemp",method={RequestMethod.GET,RequestMethod.POST})

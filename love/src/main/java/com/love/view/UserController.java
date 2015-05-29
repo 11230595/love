@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.love.constants.Constants;
 import com.love.entity.User;
 import com.love.service.UserService;
 
@@ -46,8 +47,8 @@ public class UserController {
 	 * @return
 	 */
 	@RequestMapping(value="/login",method={RequestMethod.GET,RequestMethod.POST})
-	public ModelAndView login() {
-		return new ModelAndView("login");
+	public ModelAndView login(HttpServletRequest request) {
+		return new ModelAndView("login","returnUrl",request.getParameter("returnUrl"));
 	}
 	
 	/**
@@ -102,6 +103,7 @@ public class UserController {
 		try {
 			userService.insert(user);
 			map.put("respCode", 0);
+			map.put("baseUrl", Constants.config.getString("BASE_URL"));
 		} catch (Exception e) {
 			logger.info(e);
 			map.put("respCode", 1);
@@ -116,14 +118,19 @@ public class UserController {
 	 */
 	@RequestMapping(value="/signin",method={RequestMethod.GET,RequestMethod.POST})
 	public @ResponseBody Map<String, Object> signin(HttpServletRequest request,
-			@RequestParam String userCode, @RequestParam String password,@RequestParam(required=false) String retrunUrl) {
+			@RequestParam String userCode, @RequestParam String password,@RequestParam(required=false) String returnUrl) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		
 		User user = userService.login(userCode,password);
 		
 		if(user != null){
 			map.put("respCode", 0); //登陆成功
-			map.put("returnUrl", retrunUrl);
+			
+			if(StringUtils.isNotBlank(returnUrl))
+				map.put("returnUrl", returnUrl);
+			else
+				map.put("returnUrl", Constants.config.getString("BASE_URL"));
+			
 			request.getSession().setAttribute("user", user);
 		}else {
 			map.put("respCode", 1);	//登陆失败

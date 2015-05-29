@@ -43,17 +43,27 @@
               <h1>欢迎您光临dovip.top</h1>
               <p>&nbsp;</p>
               <p>接下来您可以在本站选择模板，制作您自己的网站，快来亲自试下吧。</p>
-              <p><a class="btn btn-lg btn-primary" href="${request.contextPath}/user/login" role="button">登陆dovip去尝试</a></p>
+              <p>
+          	 	<#if user?exists>
+          	 		<a class="btn btn-lg btn-primary" href="#temp1" role="button">
+          				去尝试
+          			</a>
+          		<#else>
+          			<a class="btn btn-lg btn-primary" href="${request.contextPath}/user/login" role="button">
+          				登陆dovip去尝试
+          			</a>
+          		</#if>
+              </p>
             </div>
           </div>
         </div>
-        <div class="item">
+        <div class="item" name="item">
           <img class="second-slide" src="${request.contextPath}/images/a.png" alt="Second slide">
           <div class="container">
             <div class="carousel-caption">
               <!--<h1>模板一</h1>
               <p>优点：带音乐</p>-->
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">使用该模板制作</a></p>
+              <p><a class="btn btn-lg btn-primary" href="#temp1" role="button">使用该模板制作</a></p>
             </div>
           </div>
         </div>
@@ -63,7 +73,7 @@
             <div class="carousel-caption">
               <!--<h1>One more for good measure.</h1>
               <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>-->
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">使用该模板制作</a></p>
+              <p><a class="btn btn-lg btn-primary" href="#temp2" role="button">使用该模板制作</a></p>
             </div>
           </div>
         </div>
@@ -82,7 +92,7 @@
       <!-- START THE FEATURETTES -->
       <hr class="featurette-divider">
       <!-- 包裹层start -->
-	<div style="width:95%;text-align:center;">
+	<div style="width:95%;text-align:center;" id="temp1">
       <div class="row featurette">
         <div class="col-md-7">
           <h2 class="featurette-heading">模板一， <span class="text-muted">使用规则</span></h2>
@@ -96,7 +106,7 @@
 
       <hr class="featurette-divider">
 
-      <div class="row featurette">
+      <div class="row featurette" id="temp2">
         <div class="col-md-7 col-md-push-5">
           <h2 class="featurette-heading">模板二， <span class="text-muted">使用规则</span></h2>
           <p class="lead">您可以填入左侧绿色文字显示的部分，您和他开始的时间，既可以生成左侧的模板和网址。</p>

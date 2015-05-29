@@ -26,7 +26,7 @@
 
     <div class="container">
 
-      <form class="form-signin">
+      <form class="form-signin" style="min-height:500px;">
         <h2 class="form-signin-heading">请登陆</h2>
         <label for="inputEmail" class="sr-only">邮箱/用户名</label>
         <input type="email" id="inputEmail" class="form-control" placeholder="邮箱/用户名" required autofocus>
@@ -63,12 +63,10 @@ function login(){
 	
 	$.post("../user/signin",{
 		"userCode":userCode,
-		"password":password
+		"password":password,
+		"returnUrl":"${returnUrl!''}"
 	},function(data){
 		if(data.respCode == 0){
-			if(data.returnUrl == ""){
-				window.location.href='${request.contextPath}';
-			}
 			window.location.href=data.returnUrl;
 		}else{
 			$("#hint").show();

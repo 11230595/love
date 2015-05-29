@@ -30,6 +30,8 @@
       <hr class="featurette-divider">
 	<!-- 包裹层start -->
 	<form action="" class="form-horizontal"  role="form" id="f">
+	<input type="hidden" id="userId" name="userId" value="${user.userId!''}">
+	<input type="hidden" id="userCode" name="userCode" value="${user.userCode!''}">
 	<input type="hidden" id="templateId" name="tempNum" value="${flag!0}">
 	<div style="width:95%;">
       <div class="row featurette">
@@ -37,7 +39,7 @@
           <h2><span class="text-muted">填入以下信息以生成网址</span></h2>
           <p class="lead">
           	<div class="input-group"><span class="input-group-addon">域名</span>
-	        	<span class="input-group-addon"><code>http://dovip.top/i/</code></span>
+	        	<span class="input-group-addon"><code>${url!''}i/</code></span>
 	         	<input type="text" required id="webCode" name="webCode" class="form-control" onblur="checkWebCode();" placeholder="如果您填“love”,您的访问域名将是http://dovip.top/i/love">
 	      	</div>
 	      	<div class="alert alert-danger" id="hint" style="display:none;">该域名已经被注册！</div>

@@ -257,7 +257,7 @@ function v_repeat(){
 function adaptValue(){
 	$.post("../user/saveUser",$("#f").serialize(),function(data){
 		if(data.respCode == 0){
-			alert("注册成功");
+			window.location.href = data.baseUrl;
 		}
 	})
 }

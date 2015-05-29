@@ -1,6 +1,5 @@
 package com.love.view;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
@@ -21,8 +20,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.love.constants.Constants;
 import com.love.entity.Template;
 import com.love.service.TemplateService;
+import com.love.utils.CoreUtils;
 
 
 @Controller
@@ -36,7 +37,30 @@ public class TemplateController {
 	 */
 	@RequestMapping(value="i/{code}",method={RequestMethod.GET,RequestMethod.POST})
 	public ModelAndView index(@PathVariable String code) {
-		return new ModelAndView(code + "/index");
+		
+		
+		Template template = templateService.findTempByWebCode(code);
+		ModelAndView mav = new ModelAndView(template.getTempNum() + "/index");
+		int year = 0;
+		int month = 0;
+		int day = 0;
+		
+		List<String> contents = Arrays.asList(template.getContent().split(","));
+		
+		if(StringUtils.isNotBlank(template.getDate())){
+			String[] dates = template.getDate().split(",");
+			year = Integer.parseInt(dates[0]);
+			month = Integer.parseInt(dates[1])-1;
+			day = Integer.parseInt(dates[2]);
+		}
+		
+		mav.addObject("contents", contents);
+		mav.addObject("year", year);
+		mav.addObject("month", month);
+		mav.addObject("day", day);
+		mav.addObject("template", template);
+		
+		return mav;
 	}
 	
 	/**
@@ -97,11 +121,14 @@ public class TemplateController {
 		template.setmName(request.getParameter("mName"));
 		template.setuName(request.getParameter("uName"));
 		template.setWebCode(request.getParameter("webCode")); //用户注册的2级域名
-		template.setDate(request.getParameter("data")); //开始时间
+		template.setDate(request.getParameter("date")); //开始时间
+		template.setContent(CoreUtils.parseString(request.getParameterValues("content")));
+		template.setTempNum(Integer.parseInt(request.getParameter("tempNum")));
 		
 		try {
 			templateService.insert(template);
 			map.put("respCode", 0);
+			map.put("url", Constants.config.getString("BASE_URL") + "i/" + template.getWebCode());
 		} catch (Exception e) {
 			logger.info(e);
 			map.put("respCode", 1);

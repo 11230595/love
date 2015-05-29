@@ -31,6 +31,8 @@ function checkWebCode(){
 			$("#hint").show();
 			$("#webCode").parent("div").addClass("has-error");
 			flag = false;
+		}else{
+			flag = true;
 		}
 	})
 }
@@ -48,18 +50,22 @@ function checkForm(i){
 	
 	if(!flag){
 		$("#webCode").parent("div").addClass("has-error");
+		$(window).scrollTop(100);
 		return;
 	}
 	if($.trim(webCode) == ""){
 		$("#webCode").parent("div").addClass("has-error");
+		$(window).scrollTop(100);
 		return;
 	}
 	if($.trim(uName) == ""){
 		$("#uName").parent("div").addClass("has-error");
+		$(window).scrollTop(100);
 		return;
 	}
 	if($.trim(mName) == ""){
 		$("#mName").parent("div").addClass("has-error");
+		$(window).scrollTop(100);
 		return;
 	}
 	if(content1 == "" || content2 == ""){
@@ -73,11 +79,11 @@ function checkForm(i){
 	
 	if(i == 0){ //预览
 		viewTemplate();
+		return;
 	}
 	saveTemplate();
 }
-
-
+//检测域名是否可以用
 function checkName(obj){
 	if($.trim($(obj).val()) == ""){
 		$(obj).parent("div").addClass("has-error");
@@ -85,11 +91,19 @@ function checkName(obj){
 		$(obj).parent("div").removeClass("has-error");
 	}
 }
-
+//预览
 function viewTemplate(){
 	window.open("../view?" + $("#f").serialize())
 }
-
+//保存
 function saveTemplate(){
-	
+	$.post("../template/saveTemp",$("#f").serialize(),function(data){
+		if(data.respCode == 0){
+			if(confirm("保存成功，您的访问地址为:" + data.url + "  您可以在您的个人中心中管理，是否浏览该页面？")){
+				window.location.href = data.url;
+			}else{
+				window.location.reload(true);
+			}
+		}
+	});
 }

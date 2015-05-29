@@ -180,4 +180,19 @@ public class UserController {
 		
 		return map; 
 	}
+	
+	/**
+	 * 退出登陆
+	 * @return
+	 */
+	@RequestMapping(value="/loginOut",method={RequestMethod.GET,RequestMethod.POST})
+	public @ResponseBody Map<String, Object> loginOut(HttpServletRequest request) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		
+		request.getSession().invalidate();
+		map.put("respCode", 0);
+		map.put("baseUrl", Constants.config.getString("BASE_URL"));
+		
+		return map; 
+	}
 }

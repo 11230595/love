@@ -24,7 +24,7 @@
 	            	<a href="${request.contextPath}/user/home/${user.userId!''}"  target="_blank">${user.userCode!''} &raquo;个人中心</a>
 	            </li>
 	            <li>
-	            	<a href="#">退出</a>
+	            	<a href="javascript:void(0);" onclick="loginOut();">退出</a>
 	            </li>
 	        <#else>
 	        	<li>
@@ -41,3 +41,12 @@
 
   </div>
 </div>
+<script>
+function loginOut(){
+	$.post("${request.contextPath}/user/loginOut",function(data){
+		if(data.respCode == 0){
+			window.location.href = data.baseUrl;
+		}
+	});
+}
+</script>

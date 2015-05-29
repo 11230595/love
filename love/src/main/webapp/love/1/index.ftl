@@ -34,7 +34,7 @@
       		<span class="say">${content!''}</span><br>
       	</#list>
       	
-        <span class="say"><span class="space"></span> -- <i>${template.mName!''}</i> --</span> </font>
+        <span class="say"><span class="space"></span><i>${template.mName!''}</i></span> </font>
         </p>
       </div>
     </div>

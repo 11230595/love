@@ -79,10 +79,12 @@
 		  </div>
 		  </p>
 		  <!-- 日期选择器end -->
+		  <p class="help-block">建议您预览后生成</p>
 		  <p class="lead">
 		  	<a class="btn btn-default" href="javascript:void(0);" onclick="checkForm(0);" role="button">去预览 &raquo;</a>
 		  	<a class="btn btn-default" href="javascript:void(0);" onclick="checkForm(1);" role="button">生成</a>
 		  </p>
+		  
         </div>
         <div class="col-md-5 col-md-pull-7">
           <img class="featurette-image img-responsive center-block" src="${request.contextPath}/images/${flag!0}.png" alt="模板二">

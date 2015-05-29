@@ -40,7 +40,7 @@
 					<div id="elapseClock"></div>
 				</div>
 				<div id="loveu">
-					我会爱你直到生命的最后一刻<br/>
+					爱你直到生命的最后一刻<br/>
 					<div class="signature">- ${template.mName!''}</div>
 				</div>
 			</div>

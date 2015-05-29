@@ -33,6 +33,14 @@
     where web_code = #{webCode,jdbcType=VARCHAR}
   </select>
   
+  <!-- 根据userId查询模板 -->
+  <select id="findTempsByUserId" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from template
+    where user_id = #{userId,jdbcType=VARCHAR}
+  </select>
+  
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from template
     where ID = #{id,jdbcType=VARCHAR}

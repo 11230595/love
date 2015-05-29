@@ -122,7 +122,7 @@
       <div class="row featurette">
         <div class="col-md-7">
           <h2 class="featurette-heading">期待..<span class="text-muted">更多模板正在开发中...</span></h2>
-          <p class="lead">站长联系方式：zhoudong611@163.com</p>
+          <p class="lead">站长联系方式：<code>zhoudong611@163.com</code></p>
         </div>
         <div class="col-md-5">
           <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="Generic placeholder image">

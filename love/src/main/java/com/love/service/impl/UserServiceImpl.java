@@ -31,7 +31,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	public int updateByPrimaryKeySelective(User record) {
-		return 0;
+		return userMapper.updateByPrimaryKeySelective(record);
 	}
 
 	public int updateByPrimaryKey(User record) {

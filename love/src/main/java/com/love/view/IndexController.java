@@ -30,6 +30,15 @@ public class IndexController {
 	}
 	
 	/**
+	 * 关于
+	 * @return
+	 */
+	@RequestMapping(value="about",method={RequestMethod.GET,RequestMethod.POST})
+	public ModelAndView about() {
+		return new ModelAndView("about");
+	}
+	
+	/**
 	 * 生成页面
 	 * @return
 	 */

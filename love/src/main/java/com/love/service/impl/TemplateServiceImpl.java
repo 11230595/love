@@ -1,5 +1,7 @@
 package com.love.service.impl;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
@@ -13,7 +15,7 @@ public class TemplateServiceImpl implements TemplateService{
 	private TemplateMapper templateMapper;
 
 	public int deleteByPrimaryKey(String id) {
-		return 0;
+		return templateMapper.deleteByPrimaryKey(id);
 	}
 
 	public int insert(Template record) {
@@ -40,6 +42,12 @@ public class TemplateServiceImpl implements TemplateService{
 	 */
 	public Template findTempByWebCode(String webCode) {
 		return templateMapper.findTempByWebCode(webCode);
+	}
+	/**
+	 * 根据userId查询模板
+	 */
+	public List<Template> findTempsByUserId(String userId) {
+		return templateMapper.findTempsByUserId(userId);
 	}
 
 }

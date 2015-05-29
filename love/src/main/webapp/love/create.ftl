@@ -27,7 +27,7 @@
   	<!-- 头信息 -->
   	<#include "template/head.ftl">
   
-      <hr class="featurette-divider">
+    <hr class="featurette-divider">
 	<!-- 包裹层start -->
 	<form action="" class="form-horizontal"  role="form" id="f">
 	<input type="hidden" id="userId" name="userId" value="${user.userId!''}">
@@ -40,7 +40,7 @@
           <p class="lead">
           	<div class="input-group"><span class="input-group-addon">域名</span>
 	        	<span class="input-group-addon"><code>${url!''}i/</code></span>
-	         	<input type="text" required id="webCode" name="webCode" class="form-control" onblur="checkWebCode();" placeholder="如果您填“love”,您的访问域名将是http://dovip.top/i/love">
+	         	<input type="text" required id="webCode" name="webCode" class="form-control" onblur="checkWebCode(this);" placeholder="如果您填“love”,您的访问域名将是http://dovip.top/i/love">
 	      	</div>
 	      	<div class="alert alert-danger" id="hint" style="display:none;">该域名已经被注册！</div>
       	  </p>

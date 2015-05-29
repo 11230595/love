@@ -33,7 +33,7 @@
         <label for="inputPassword" class="sr-only">密码</label>
         <input type="password" id="inputPassword" class="form-control" placeholder="密码" required>
         <div class="alert alert-danger" id="hint" style="display:none;">用户名或密码错误</div>
-        <button class="btn btn-lg btn-primary btn-block" type="button" onclick="login();">登陆</button>
+        <button class="btn btn-lg btn-primary btn-block" type="button" onclick="login();" id="signin">登陆</button>
         <button class="btn btn-lg btn-danger btn-block" type="button" onclick="window.location.href='${request.contextPath}/user/zc'">注册</button>
       </form>
 
@@ -47,6 +47,16 @@
   </body>
   
 <script>
+//绑定回车事件
+$(function(){
+    document.onkeydown = function(e){ 
+	    var ev = document.all ? window.event : e;
+	    if(ev.keyCode==13) {
+	         login();
+	    }
+	} 
+});
+
 //登陆
 function login(){
 	$("#hint").hide(); //隐藏提示框

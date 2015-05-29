@@ -99,8 +99,8 @@ function viewTemplate(){
 function saveTemplate(){
 	$.post("../template/saveTemp",$("#f").serialize(),function(data){
 		if(data.respCode == 0){
-			if(confirm("保存成功，您的访问地址为:" + data.url + "  您可以在您的个人中心中管理，是否浏览该页面？")){
-				window.location.href = data.url;
+			if(confirm("保存成功，您的访问地址为:" + data.url + "  您可以在您的个人中心中管理，是否跳转到个人中心查看？")){
+				window.location.href = data.userHome;
 			}else{
 				window.location.reload(true);
 			}

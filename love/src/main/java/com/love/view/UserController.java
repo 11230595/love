@@ -2,6 +2,7 @@ package com.love.view;
 
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
@@ -12,6 +13,7 @@ import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -19,7 +21,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.love.constants.Constants;
+import com.love.entity.Template;
 import com.love.entity.User;
+import com.love.service.TemplateService;
 import com.love.service.UserService;
 
 /**
@@ -33,6 +37,8 @@ public class UserController {
 	private static Logger logger = Logger.getLogger(UserController.class);
 	@Resource
 	private UserService userService;
+	@Resource
+	private TemplateService templateService;
 	
 	/**
 	 * 跳转到注册页面
@@ -137,5 +143,41 @@ public class UserController {
 		}
 		
 		return map;
+	}
+	
+	/**
+	 * 用户中心
+	 * @return
+	 */
+	@RequestMapping(value="/home/{userId}",method={RequestMethod.GET,RequestMethod.POST})
+	public ModelAndView userHome(@PathVariable String userId) {
+		ModelAndView mav = new ModelAndView("userHome"); 
+		List<Template> list = templateService.findTempsByUserId(userId);
+		mav.addObject("temps", list);
+		mav.addObject("url", Constants.config.getString("BASE_URL"));
+		return mav; 
+	}
+	
+	/**
+	 * 更新用户资料
+	 * @return
+	 */
+	@RequestMapping(value="/update",method={RequestMethod.GET,RequestMethod.POST})
+	public @ResponseBody Map<String, Object> userHome(HttpServletRequest request) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		
+		User user = new User();
+		user.setUserId(request.getParameter("userId"));
+		user.setPassword(request.getParameter("password"));
+		
+		try {
+			userService.updateByPrimaryKeySelective(user);
+			map.put("respCode", 0);
+		} catch (Exception e) {
+			logger.info(e);
+			map.put("respCode", 1);
+		}
+		
+		return map; 
 	}
 }

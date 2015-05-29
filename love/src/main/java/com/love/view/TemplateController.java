@@ -40,6 +40,9 @@ public class TemplateController {
 		
 		
 		Template template = templateService.findTempByWebCode(code);
+		if(template == null){
+			return null;
+		}
 		ModelAndView mav = new ModelAndView(template.getTempNum() + "/index");
 		int year = 0;
 		int month = 0;
@@ -105,7 +108,7 @@ public class TemplateController {
 	}
 	
 	/**
-	 * 注册二级域名
+	 * 生成模板
 	 * @return
 	 */
 	@RequestMapping(value="template/saveTemp",method={RequestMethod.GET,RequestMethod.POST})
@@ -129,6 +132,7 @@ public class TemplateController {
 			templateService.insert(template);
 			map.put("respCode", 0);
 			map.put("url", Constants.config.getString("BASE_URL") + "i/" + template.getWebCode());
+			map.put("userHome", Constants.config.getString("BASE_URL") + "user/home/" + request.getParameter("userId"));
 		} catch (Exception e) {
 			logger.info(e);
 			map.put("respCode", 1);
@@ -148,6 +152,24 @@ public class TemplateController {
 		if(template == null){
 			map.put("respCode", 0);
 		}else {
+			map.put("respCode", 1);
+		}
+		return map;
+	}
+	
+	/**
+	 * 删除模板，真删
+	 * @return
+	 */
+	@RequestMapping(value="template/deleteTemp",method={RequestMethod.GET,RequestMethod.POST})
+	public @ResponseBody Map<String, Object> deleteTemp(@RequestParam String id) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		
+		try {
+			templateService.deleteByPrimaryKey(id);
+			map.put("respCode", 0);
+		} catch (Exception e) {
+			logger.info(e);
 			map.put("respCode", 1);
 		}
 		return map;

@@ -96,7 +96,7 @@
       <!-- START THE FEATURETTES -->
       <hr class="featurette-divider">
       <!-- 包裹层start -->
-	<div style="width:95%;text-align:center;" id="temp1">
+	<div style="width:90%;text-align:center;margin-left:5%" id="temp1">
       <div class="row featurette">
         <div class="col-md-7">
           <h2 class="featurette-heading">模板一， <span class="text-muted">使用规则</span></h2>
@@ -125,7 +125,7 @@
 
       <div class="row featurette">
         <div class="col-md-7">
-          <h2 class="featurette-heading">期待..<span class="text-muted">更多模板正在开发中...</span></h2>
+          <h2 class="featurette-heading"><span class="text-muted">更多模板正在开发中...</span></h2>
           <p class="lead">站长联系方式：<code>zhoudong611@163.com</code></p>
         </div>
         <div class="col-md-5">

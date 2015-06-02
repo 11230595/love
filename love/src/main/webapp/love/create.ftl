@@ -33,7 +33,7 @@
 	<input type="hidden" id="userId" name="userId" value="${user.userId!''}">
 	<input type="hidden" id="userCode" name="userCode" value="${user.userCode!''}">
 	<input type="hidden" id="templateId" name="tempNum" value="${flag!0}">
-	<div style="width:95%;">
+	<div style="width:90%;margin-left:5%">
       <div class="row featurette">
         <div class="col-md-7 col-md-push-5">
           <h2><span class="text-muted">填入以下信息以生成网址</span></h2>

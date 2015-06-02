@@ -5,8 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
     <meta name="author" content="">
+    <meta name="keywords" content="表白，表白网站，网站生成，创意表白网站,dovip.top" />
+	<meta name="description" content="dovip.top是一个专门生成表白类网站的网站" />
+    
     <link rel="icon" href="${request.contextPath}/ico/favicon.ico">
 
     <title>dovip.top-用户登陆</title>

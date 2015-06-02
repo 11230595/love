@@ -7,6 +7,7 @@ import java.util.Map;
 import java.util.UUID;
 
 import javax.annotation.Resource;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.lang.StringUtils;
@@ -143,6 +144,33 @@ public class UserController {
 		}
 		
 		return map;
+	}
+	
+	
+	/**
+	 * 其他登陆
+	 * @return
+	 */
+	@RequestMapping(value="/otherSignin",method={RequestMethod.GET,RequestMethod.POST})
+	public String otherSignin(HttpServletRequest request,
+			@RequestParam String userCode) {
+		
+		User user = new User();
+		user.setUserCode(userCode);
+		
+		String userId = "";
+		Cookie[] cookies = request.getCookies();
+		for(Cookie cookie : cookies){
+			
+			if(cookie.getName().equals("pgv_pvid")){
+				userId = cookie.getValue();
+			}
+		}
+		user.setUserId(userId);
+		
+		request.getSession().setAttribute("user", user);
+		
+		return "redirect:/";
 	}
 	
 	/**

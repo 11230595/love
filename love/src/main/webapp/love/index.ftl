@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="zhoudong">
-    
+    <meta property="qc:admins" content="15632261761061411006375" /><!-- 腾讯验证 -->
+    <meta property="wb:webmaster" content="3e2f24da6fdda157" /><!-- 微博验证 -->
     <meta name="keywords" content="表白，表白网站，网站生成，创意表白网站,dovip.top" />
 	<meta name="description" content="dovip.top是一个专门生成表白类网站的网站" />
     

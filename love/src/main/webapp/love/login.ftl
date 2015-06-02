@@ -22,6 +22,7 @@
 
     <!-- Custom styles for this template -->
     <link href="${request.contextPath}/bootstrap/css/signin.css" rel="stylesheet">
+    
   </head>
 
   <body>
@@ -37,6 +38,46 @@
         <div class="alert alert-danger" id="hint" style="display:none;">用户名或密码错误</div>
         <button class="btn btn-lg btn-primary btn-block" type="button" onclick="login();" id="signin">登陆</button>
         <button class="btn btn-lg btn-danger btn-block" type="button" onclick="window.location.href='${request.contextPath}/user/zc'">注册</button>
+      	
+      	<!-- 合作网站登陆start -->
+      	<p>&nbsp;</p>
+      	<!--
+      	<p>
+	      	<script type="text/javascript" src="http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js" data-appid="101223876" data-redirecturi="http://dovip.aliapp.com/login/qqLogin.jsp" charset="utf-8" ></script>
+
+			<span id="qqLoginBtn" ></span>
+			
+			<script type="text/javascript">
+			 QC.Login({
+			  btnId : "qqLoginBtn",//插入按钮的html标签id
+			  size : "B_M",//按钮尺寸
+			  scope : "get_user_info",//展示授权，全部可用授权可填 all
+			  display : "pc"//应用场景，可选
+			 });
+			</script>
+		</p> 腾讯登陆-->
+		<!-- 
+		<p>
+    		<script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js?appkey=81516774&debug=true" type="text/javascript" charset="utf-8"></script>
+			<div id="wb_connect_btn"></div>
+			<script>
+				WB2.anyWhere(function (W) {
+				    W.widget.connectButton({
+				        id: "wb_connect_btn",
+				        type: '5,2',
+				        callback: {
+				            login: function (o) { //登录后的回调函数
+				                alert("login: " + o.screen_name)
+				            },
+				            logout: function () { //退出后的回调函数
+				                alert('logout');
+				            }
+				        }
+				    });
+				});
+			</script>
+		</p>微博登陆 -->
+		<!-- 合作网站登陆end -->
       </form>
 
 	 <!-- 地脚信息 -->

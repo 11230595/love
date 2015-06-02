@@ -59,4 +59,5 @@
 	<mvc:resources mapping="/love/**" location="/love/" />  
 	<mvc:resources mapping="/bootstrap/**" location="/bootstrap/" /> 
 	<mvc:resources mapping="/ico/**" location="/ico/" /> 
+	<mvc:resources mapping="/login/**" location="/login/" /> 
 </beans>

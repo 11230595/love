@@ -15,7 +15,7 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="${request.contextPath}">首页</a></li>
+            <li class="active"><a href="${url!'http://dovip.top'}">首页</a></li>
             <li><a href="${request.contextPath}/about">关于</a></li>
             <li><a href="http://seller.aliapp.com/"  target="_blank">九块九包邮</a></li>
             <li><a href="http://datetime.jd-app.com/"  target="_blank">日期测算</a></li>

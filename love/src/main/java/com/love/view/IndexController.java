@@ -35,7 +35,7 @@ public class IndexController {
 	 */
 	@RequestMapping(value="about",method={RequestMethod.GET,RequestMethod.POST})
 	public ModelAndView about() {
-		return new ModelAndView("about");
+		return new ModelAndView("about","url",Constants.config.getString("BASE_URL"));
 	}
 	
 	/**

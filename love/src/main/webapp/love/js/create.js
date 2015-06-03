@@ -22,6 +22,9 @@ $('.form_date').datetimepicker({
  * 验证二级域名是否可用
  */
 function checkWebCode(){
+	if($.trim($("#webCode").val()) == ''){
+		return;
+	}
 	$("#hint").hide();
 	$("#webCode").parent("div").removeClass("has-error");
 	$.post("../template/checkWebCode",{

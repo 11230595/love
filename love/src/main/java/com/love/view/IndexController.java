@@ -26,7 +26,7 @@ public class IndexController {
 	 */
 	@RequestMapping(value="index",method={RequestMethod.GET,RequestMethod.POST})
 	public ModelAndView index() {
-		return new ModelAndView("index");
+		return new ModelAndView("index","style","navbar navbar-inverse navbar-static-top");
 	}
 	
 	/**

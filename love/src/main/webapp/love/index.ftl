@@ -41,7 +41,7 @@
       </ol>
       <div class="carousel-inner" role="listbox">
         <div class="item active">
-          <img class="first-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="First slide">
+          <img class="first-slide" src="${request.contextPath}/images/cc.jpg" alt="First slide">
           <div class="container">
             <div class="carousel-caption">
               <h1>欢迎您光临dovip.top</h1>
@@ -49,7 +49,7 @@
               <p>接下来您可以在本站选择模板，制作您自己的网站，快来亲自试下吧。</p>
               <p>
           	 	<#if user?exists>
-          	 		<a class="btn btn-lg btn-primary" href="#temp1" role="button">
+          	 		<a class="btn btn-lg btn-danger" href="#temp1" role="button"><!--btn-primary 蓝色按钮-->
           				去尝试
           			</a>
           		<#else>
@@ -62,22 +62,22 @@
           </div>
         </div>
         <div class="item" name="item">
-          <img class="second-slide" src="${request.contextPath}/images/a.png" alt="Second slide">
+          <img class="second-slide" src="${request.contextPath}/images/aa.jpg" alt="Second slide">
           <div class="container">
             <div class="carousel-caption">
-              <!--<h1>模板一</h1>
-              <p>优点：带音乐</p>-->
-              <p><a class="btn btn-lg btn-primary" href="#temp1" role="button">使用该模板制作</a></p>
+              <h1>生活不仅仅需要是陪伴，更需要源源不断的惊喜</h1>
+              <p>&nbsp;<p>
+              <!--<p><a class="btn btn-lg btn-primary" href="#temp1" role="button">使用该模板制作</a></p>-->
             </div>
           </div>
         </div>
         <div class="item">
-          <img class="third-slide" src="${request.contextPath}/images/b.png" alt="Third slide">
+          <img class="third-slide" src="${request.contextPath}/images/bb.jpg" alt="Third slide">
           <div class="container">
             <div class="carousel-caption">
-              <!--<h1>One more for good measure.</h1>
-              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>-->
-              <p><a class="btn btn-lg btn-primary" href="#temp2" role="button">使用该模板制作</a></p>
+              <h1>或许平凡，但不平淡。</h1>
+              <!--<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>-->
+              <!--<p><a class="btn btn-lg btn-primary" href="#temp2" role="button">使用该模板制作</a></p>-->
             </div>
           </div>
         </div>
@@ -96,12 +96,13 @@
       <!-- START THE FEATURETTES -->
       <hr class="featurette-divider">
       <!-- 包裹层start -->
-	<div style="width:90%;text-align:center;margin-left:5%" id="temp1">
+	<div style="width:90%;margin-left:5%" id="temp1">
       <div class="row featurette">
         <div class="col-md-7">
-          <h2 class="featurette-heading">模板一， <span class="text-muted">使用规则</span></h2>
-          <p class="lead">您可以填入右侧红色文字显示的部分，您和他/她开始的时间，既可以生成右边的模板和和网址。</p>
-          <p><a class="btn btn-default" href="${request.contextPath}/create/1" role="button" target="_blank">去生成 &raquo;</a></p>
+          <h2 class="featurette-heading"><span class="text-muted">模板一</span></h2>
+          <p class="lead">本站承诺所有模板永久免费。<p>
+          <!--<p class="lead">您可以填入右侧红色文字显示的部分，您和他/她开始的时间，既可以生成右边的模板和和网址。</p>-->
+          <p><a class="btn btn-danger" href="${request.contextPath}/create/1" role="button" target="_blank">免费生成 &raquo;</a></p>
         </div>
         <div class="col-md-5">
           <img class="featurette-image img-responsive center-block" src="${request.contextPath}/images/a1.png" alt="模板一">
@@ -112,9 +113,10 @@
 
       <div class="row featurette" id="temp2">
         <div class="col-md-7 col-md-push-5">
-          <h2 class="featurette-heading">模板二， <span class="text-muted">使用规则</span></h2>
-          <p class="lead">您可以填入左侧绿色文字显示的部分，您和他开始的时间，既可以生成左侧的模板和网址。</p>
-          <p><a class="btn btn-default" href="${request.contextPath}/create/2" role="button" target="_blank">去生成 &raquo;</a></p>
+          <h2 class="featurette-heading"><span class="text-muted">模板二</span></h2>
+          <p class="lead">本站承诺所有模板永久免费。<p>
+          <!--<p class="lead">您可以填入左侧绿色文字显示的部分，您和他开始的时间，既可以生成左侧的模板和网址。</p>-->
+          <p><a class="btn btn-danger" href="${request.contextPath}/create/2" role="button" target="_blank">免费生成 &raquo;</a></p>
         </div>
         <div class="col-md-5 col-md-pull-7">
           <img class="featurette-image img-responsive center-block" src="${request.contextPath}/images/b1.png" alt="模板二">
@@ -126,6 +128,7 @@
       <div class="row featurette">
         <div class="col-md-7">
           <h2 class="featurette-heading"><span class="text-muted">更多模板正在开发中...</span></h2>
+          <p class="lead">欢迎您把您宝贵的建议反馈给站长</p>
           <p class="lead">站长联系方式：<code>zhoudong611@163.com</code></p>
         </div>
         <div class="col-md-5">

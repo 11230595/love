@@ -2,7 +2,7 @@
   <div class="container">
 
     <!--<nav class="navbar navbar-inverse navbar-static-top">-->
-    <nav class="navbar navbar-default navbar-fixed-top">
+    <nav class="${style!'navbar navbar-default navbar-fixed-top'}">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -15,8 +15,8 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="${url!'http://dovip.top'}">首页</a></li>
-            <li><a href="${request.contextPath}/about">关于</a></li>
+            <li class="active" id="home"><a href="${url!'http://dovip.top'}">首页</a></li>
+            <li id="about"><a href="${request.contextPath}/about">关于</a></li>
             <li><a href="http://seller.aliapp.com/"  target="_blank">九块九包邮</a></li>
             <li><a href="http://datetime.jd-app.com/"  target="_blank">日期测算</a></li>
           </ul>

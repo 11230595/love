@@ -55,7 +55,7 @@ public class TemplateController {
 			year = Integer.parseInt(dates[0]);
 			month = Integer.parseInt(dates[1])-1;
 			day = Integer.parseInt(dates[2]);
-			new ModelAndView(template.getTempNum() + "/index");
+			mav = new ModelAndView(template.getTempNum() + "/index");
 		}else{ //是信纸
 			mav = new ModelAndView("xinzhi/xinzhi");
 			mav.addObject("tempNum", template.getTempNum());

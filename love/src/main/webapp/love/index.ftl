@@ -99,7 +99,7 @@
 	<div style="width:90%;margin-left:5%" id="temp1">
       <div class="row featurette">
         <div class="col-md-7">
-          <h2 class="featurette-heading"><span class="text-muted">模板一</span></h2>
+          <h2 class="featurette-heading"><span class="text-muted">模板一（推荐）</span></h2>
           <p class="lead">本站承诺所有模板永久免费。<p>
           <!--<p class="lead">您可以填入右侧红色文字显示的部分，您和他/她开始的时间，既可以生成右边的模板和和网址。</p>-->
           <p><a class="btn btn-danger" href="${request.contextPath}/create/1" role="button" target="_blank">免费生成 &raquo;</a></p>
@@ -113,7 +113,7 @@
 
       <div class="row featurette" id="temp2">
         <div class="col-md-7 col-md-push-5">
-          <h2 class="featurette-heading"><span class="text-muted">模板二</span></h2>
+          <h2 class="featurette-heading"><span class="text-muted">模板二（推荐）</span></h2>
           <p class="lead">本站承诺所有模板永久免费。<p>
           <!--<p class="lead">您可以填入左侧绿色文字显示的部分，您和他开始的时间，既可以生成左侧的模板和网址。</p>-->
           <p><a class="btn btn-danger" href="${request.contextPath}/create/2" role="button" target="_blank">免费生成 &raquo;</a></p>
@@ -127,11 +127,24 @@
 
       <div class="row featurette">
         <div class="col-md-7">
+          <h2 class="featurette-heading"><span class="text-muted">使用信纸生成</span></h2>
+          <p class="lead">本站承诺所有模板永久免费。<p>
+          <p><a class="btn btn-danger" href="${request.contextPath}/xinzhi/list" role="button" target="_blank">去挑选信纸生成 &raquo;</a></p>
+        </div>
+        <div class="col-md-5">
+          <img class="featurette-image img-responsive center-block" src="${request.contextPath}/images/xinzhi/group.jpg" alt="模板二">
+        </div>
+      </div>
+      
+      <hr class="featurette-divider">
+
+      <div class="row featurette" id="temp2">
+        <div class="col-md-7 col-md-push-5">
           <h2 class="featurette-heading"><span class="text-muted">更多模板正在开发中...</span></h2>
           <p class="lead">欢迎您把您宝贵的建议反馈给站长</p>
           <p class="lead">站长联系方式：<code>zhoudong611@163.com</code></p>
         </div>
-        <div class="col-md-5">
+        <div class="col-md-5 col-md-pull-7">
           <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
         </div>
       </div>

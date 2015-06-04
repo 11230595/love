@@ -36,14 +36,14 @@ public class TemplateController {
 	 * @return
 	 */
 	@RequestMapping(value="i/{code}",method={RequestMethod.GET,RequestMethod.POST})
-	public ModelAndView index(@PathVariable String code) {
+	public ModelAndView index(@PathVariable String code,HttpServletRequest request) {
 		
 		
 		Template template = templateService.findTempByWebCode(code);
 		if(template == null){
 			return null;
 		}
-		ModelAndView mav = new ModelAndView(template.getTempNum() + "/index");
+		ModelAndView mav = null;
 		int year = 0;
 		int month = 0;
 		int day = 0;
@@ -55,6 +55,11 @@ public class TemplateController {
 			year = Integer.parseInt(dates[0]);
 			month = Integer.parseInt(dates[1])-1;
 			day = Integer.parseInt(dates[2]);
+			new ModelAndView(template.getTempNum() + "/index");
+		}else{ //是信纸
+			mav = new ModelAndView("xinzhi/xinzhi");
+			mav.addObject("tempNum", template.getTempNum());
+			mav.addObject("margin", margin(request));
 		}
 		
 		mav.addObject("contents", contents);
@@ -85,11 +90,18 @@ public class TemplateController {
 		
 		List<String> contents = Arrays.asList(content);
 		
-		if(StringUtils.isNotBlank(date)){
+		ModelAndView mav = null;
+		
+		if(StringUtils.isNotBlank(date)){  //是网站
 			String[] dates = date.split(",");
 			year = Integer.parseInt(dates[0]);
 			month = Integer.parseInt(dates[1])-1;
 			day = Integer.parseInt(dates[2]);
+			mav = new ModelAndView(tempNum + "/index");
+		}else{ //是信纸
+			mav = new ModelAndView("xinzhi/xinzhi");
+			mav.addObject("tempNum", tempNum);
+			mav.addObject("margin", margin(request));
 		}
 		
 		Template template = new Template();
@@ -97,7 +109,7 @@ public class TemplateController {
 		template.setmName(mName);
 		template.setTitle("");
 		
-		ModelAndView mav = new ModelAndView(tempNum + "/index");
+		
 		mav.addObject("year", year);
 		mav.addObject("month", month);
 		mav.addObject("day", day);
@@ -173,5 +185,19 @@ public class TemplateController {
 			map.put("respCode", 1);
 		}
 		return map;
+	}
+	
+	/**
+	 * 计算margin-left
+	 * @param request
+	 * @return
+	 */
+	private int margin(HttpServletRequest request){
+		String userAgent = request.getHeader("user-agent");  //请求从哪来的
+		int margin = 35;
+		if(userAgent.contains("Android") || userAgent.contains("iPhone")){
+			margin = 0;
+		}
+		return margin;
 	}
 }

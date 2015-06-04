@@ -10,7 +10,7 @@
     
     <link rel="icon" href="${request.contextPath}/ico/favicon.ico">
 
-    <title>dovip.top-使用信纸生成网站</title>
+    <title>该模板有dovip.top提供</title>
 
     <!-- Bootstrap core CSS -->
     <link href="${request.contextPath}/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -38,50 +38,26 @@
 <!-- NAVBAR
 ================================================== -->
   <body>
-  	<!-- 头信息 -->
-    <#include "../template/head.ftl">
-	<form action="" class="form-horizontal"  role="form" id="f">
-	<input type="hidden" name="userId" value="${user.userId!''}">
-    <input type="hidden" name="userCode" value="${user.userCode!''}">
-    <input type="hidden" name="tempNum" value="${index!0}">
-	
+    
     <!-- 包裹层start -->
-	<div style="width:80%;margin:8% 0 0 ${margin!0}%">
+	<div style="width:80%;margin:1% 0 0 ${margin!0}%">
       <div class="row featurette">
-      	<h2>使用信纸生成网站</h2>
-      	<p class="lead">
-	      	<div class="input-group" style="width:39%;">
-	      		<span class="input-group-addon">域名</span>
-	        	<span class="input-group-addon"><code>${url!''}i/</code></span>
-	         	<input type="text" required id="webCode" name="webCode" class="form-control" onblur="checkWebCode(this);" placeholder="如：lisi">
-	      	</div>
-	      	<div class="alert alert-danger" id="hint" style="display:none;">该域名已经被注册！</div>
-      	</p>
         <div class="item" name="item">
           <img class="second-slide" src="${request.contextPath}/images/xinzhi/x${index!0}.jpg" alt="Second slide">
           <div class="container">
-            <div class="carousel-caption" style="text-align:left;top: 55%;left:15%;color:#000;">
+            <div class="carousel-caption" style="text-align:left;top: 28%;left:${margin!0}%;color:#000;">
 	              <p>&nbsp;</p>
-	              <p><input type="text" id="uName" name="uName" size="20%" class="input" placeholder="亲爱的" maxlength="8"/><p>
-	              <p><input type="text" id="content1" name="content" size="35%" class="input" maxlength="17"/><p>
-	              <p><input type="text" id="content2" name="content" size="35%" class="input" maxlength="17"/><p>
-	              <p><input type="text" name="content" size="35%" class="input" maxlength="17"/><p>
-	              <p><input type="text" name="content" size="35%" class="input" maxlength="17"/><p>
-	              <p><input type="text" name="content" size="35%" class="input" maxlength="17"/><p>
-	              <p style="margin-left:28%"><input type="text" id="mName" name="mName" size="10%" class="input" placeholder="爱你的" maxlength="8"/><p>
+	              <p><input type="text" size="20%" class="input" value="${template.uName!''}" disabled maxlength="20"/><p>
+	              <#list contents as content>
+	              	<p><input type="text" value="${content!''}" size="35%" disabled class="input"/><p>
+	              </#list>
+	              <p style="margin-left:28%"><input type="text" size="10%" class="input" value="${template.mName!''}"/><p>
             </div>
           </div>
         </div>
       </div>
-      <br>
-      <p class="help-block">建议您预览后生成</p>
-      <p class="lead">
-	  	<a class="btn btn-default" href="javascript:void(0);" onclick="checkForm(0);" role="button">去预览 &raquo;</a>
-	  	<a class="btn btn-default" href="javascript:void(0);" onclick="checkForm(1);" role="button">生成</a>
-	  </p>
 	</div>
 	<!-- 包裹层end -->
-	</form>
       <hr class="featurette-divider">
       <!-- /END THE FEATURETTES -->
 

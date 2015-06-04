@@ -10,7 +10,7 @@
     
     <link rel="icon" href="${request.contextPath}/ico/favicon.ico">
 
-    <title>dovip.top-首页</title>
+    <title>dovip.top-挑选信纸</title>
 
     <!-- Bootstrap core CSS -->
     <link href="${request.contextPath}/bootstrap/css/bootstrap.min.css" rel="stylesheet">

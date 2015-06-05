@@ -21,7 +21,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.love.constants.Constants;
+import com.love.entity.IndexTemp;
 import com.love.entity.Template;
+import com.love.service.IndexTempService;
 import com.love.service.TemplateService;
 import com.love.utils.CoreUtils;
 
@@ -31,6 +33,8 @@ public class TemplateController {
 	private static Logger logger = Logger.getLogger(TemplateController.class);
 	@Resource
 	private TemplateService templateService;
+	@Resource
+	private IndexTempService indexTempService;
 	/**
 	 * 首页
 	 * @return
@@ -200,4 +204,26 @@ public class TemplateController {
 		}
 		return margin;
 	}
+	/**
+	 * 查询前三十条数据
+	 * @return
+	 */
+	@RequestMapping(value="template/getIndexUrl",method={RequestMethod.GET,RequestMethod.POST})
+	public @ResponseBody Map<String, Object> findIndexUrl() {
+		Map<String, Object> map = new HashMap<String, Object>();
+		
+		try {
+			List<IndexTemp> list = indexTempService.findAll();
+			for(IndexTemp indexTemp : list){
+				indexTemp.setUrl(Constants.config.getString("BASE_URL") + "i/" + indexTemp.getUrl());
+			}
+			map.put("respCode", 0);
+			map.put("result", list);
+		} catch (Exception e) {
+			logger.info(e);
+			map.put("respCode", 1);
+		}
+		return map;
+	}
+	
 }

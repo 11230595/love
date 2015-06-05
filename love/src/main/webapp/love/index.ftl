@@ -22,6 +22,9 @@
 
     <!-- Custom styles for this template -->
     <link href="${request.contextPath}/bootstrap/css/carousel.css" rel="stylesheet">
+    
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/javascript" src="${request.contextPath}/js/jquery/jquery-1.11.1.min.js"></script>
   </head>
 <!-- NAVBAR
 ================================================== -->
@@ -138,13 +141,28 @@
       
       <hr class="featurette-divider">
 
-      <div class="row featurette" id="temp2">
+      <div class="row featurette">
         <div class="col-md-7 col-md-push-5">
+          <h2 class="featurette-heading"><span class="text-muted">已生成网站浏览</span></h2>
+          <p class="lead">本站承诺所有模板永久免费。<p>
+          <p><a class="btn btn-danger" href="${request.contextPath}/xinzhi/list" role="button" target="_blank">去挑选信纸生成 &raquo;</a></p>
+        </div>
+        <div class="col-md-5 col-md-pull-7">
+        	<!-- 已生成网站滚动start -->
+          	<#include "template/gundong.ftl">
+          	<!-- 滚动end -->
+        </div>
+      </div>
+      
+      <hr class="featurette-divider">
+
+      <div class="row featurette" id="temp2">
+        <div class="col-md-7">
           <h2 class="featurette-heading"><span class="text-muted">更多模板正在开发中...</span></h2>
           <p class="lead">欢迎您把您宝贵的建议反馈给站长</p>
           <p class="lead">站长联系方式：<code>zhoudong611@163.com</code></p>
         </div>
-        <div class="col-md-5 col-md-pull-7">
+        <div class="col-md-5">
           <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
         </div>
       </div>
@@ -164,8 +182,7 @@
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script type="text/javascript" src="${request.contextPath}/js/jquery/jquery-1.11.1.min.js"></script>
+    
     <script src="${request.contextPath}/bootstrap/js/bootstrap.min.js"></script>
     <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
     <script src="${request.contextPath}/bootstrap/js/holder.js"></script>

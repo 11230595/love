@@ -143,7 +143,7 @@
 
       <div class="row featurette">
         <div class="col-md-7 col-md-push-5">
-          <h2 class="featurette-heading"><span class="text-muted">已生成网站浏览</span></h2>
+          <h2 class="featurette-heading"><span class="text-muted">部分已生成网站浏览</span></h2>
           <p class="lead">本站承诺所有模板永久免费。<p>
           <p><a class="btn btn-danger" href="${request.contextPath}/xinzhi/list" role="button" target="_blank">去挑选信纸生成 &raquo;</a></p>
         </div>

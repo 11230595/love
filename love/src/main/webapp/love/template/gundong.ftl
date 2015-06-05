@@ -1,5 +1,5 @@
 <style type="text/css">
-#ul1{background:white;margin:0px;padding:0px;width:500px;height:300px;border:1px solid black;overflow:hidden;}
+#ul1{background:white;margin:0px;padding:0px;width:100%;height:300px;border:1px solid black;overflow:hidden;}
 #ul1 li{border-bottom:1px dashed #CCC;padding:15px 10px 3px 10px;margin:0px;list-style:none;}
 </style>
 <script type="text/javascript">

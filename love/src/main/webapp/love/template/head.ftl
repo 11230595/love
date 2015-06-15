@@ -17,7 +17,7 @@
           <ul class="nav navbar-nav">
             <li class="active" id="home"><a href="${url!'http://dovip.top'}">首页</a></li>
             <li id="about"><a href="${request.contextPath}/about">关于</a></li>
-            <li><a href="http://seller.aliapp.com/"  target="_blank">九块九包邮</a></li>
+            <li><a href="http://dazhe.dovip.top/"  target="_blank">九块九包邮</a></li>
             <li><a href="http://datetime.jd-app.com/"  target="_blank">日期测算</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">

@@ -42,7 +42,7 @@
 		   </thead>
 		    <#list xinZhiUrls as xinZhi>
 		      <tr>
-		         <td><img style="width:150px" src="${request.contextPath}/${xinZhi!''}"></td>
+		         <td><img style="width:150px" src="${request.contextPath}${xinZhi!''}"></td>
 		         <td><a href="${request.contextPath}/xinzhi/create/${xinZhi_index}">使用该信纸生成</a></td>
 		      </tr>
 	      	</#list>

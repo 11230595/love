@@ -39,6 +39,11 @@ public class PaperController {
 	 */
 	@RequestMapping(value="list",method={RequestMethod.GET,RequestMethod.POST})
 	public ModelAndView list(HttpServletRequest request) {
+		
+		if(request.getSession().getAttribute("user") == null){
+			return new ModelAndView("redirect:/user/login?returnUrl=" + Constants.config.getString("BASE_URL") + "xinzhi/list");
+		}
+		
 		ModelAndView mav = new ModelAndView("/xinzhi/xinzhiList");
 		String xinZhiUrl = Constants.config.getString("XINZHI_URL");
 		String[] xinZhiUrls = xinZhiUrl.split(",");

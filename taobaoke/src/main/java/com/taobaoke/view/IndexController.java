@@ -61,18 +61,20 @@ public class IndexController {
 		for(FrameUrl frameUrl : list){
 			try {
 				Document doc = Jsoup.connect(frameUrl.gettUrl()).get();
-				size = doc.select(".item").size();
+				size = doc.select("li").size();
 				
 				if(userAgent.contains("Android") || userAgent.contains("iPhone")){
-					frameUrl.setHeight((size % 2 == 0 ? size/2 : size / 2 + 1)*222+120); //手机端每行显示两个
+					frameUrl.setHeight((size % 2 == 0 ? size/2 : size / 2 + 1)*232+120); //手机端每行显示两个
 				}else {
-					if(doc.select(".item-list-col5").size() == 1){
+					/*if(doc.select(".item-list-col5").size() == 1){
 						frameUrl.setHeight((size % 5 == 0 ? size/5 : size / 5 + 1)*292); //PC每行显示5个
 					}else if(doc.select(".item-list-col4").size() == 1){
 						frameUrl.setHeight((size % 4 == 0 ? size/4 : size / 4 + 1)*354); //PC每行显示4个
 					}else {
 						frameUrl.setHeight((size % 3 == 0 ? size/3 : size / 3 + 1)*432); //PC每行显示3个
-					}
+					}*/
+					
+					frameUrl.setHeight((size % 3 == 0 ? size/3 : size / 3 + 1)*415); //PC每行显示4个
 				}
 				frameUrls.add(frameUrl);
 			} catch (IOException e) {

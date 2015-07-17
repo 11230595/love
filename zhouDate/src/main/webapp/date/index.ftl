@@ -35,7 +35,7 @@
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li class="active" onclick="activeLi(this,'');"><a href="${sellerUrl!''}" target="_blank">9.9包邮</a></li>
-            <li class="active" onclick="activeLi(this,'');"><a href="http://www.dovip.top/" target="_blank">开口示爱</a></li>
+            <li onclick="activeLi(this,'');"><a href="http://www.dovip.top/" target="_blank">开口示爱</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>

@@ -68,6 +68,7 @@ public class IndexController {
 	@RequestMapping(value="convertDate",method={RequestMethod.GET,RequestMethod.POST})
 	public @ResponseBody Map<String, Object> convertDate(@RequestParam String time, @RequestParam int flag) {
 		Map<String, Object> map = new HashMap<String, Object>();
+		time = time.substring(0,10);
 		String date = "";
 		if(flag == 0){
 			date = Lunar.lunarTosolar(time);

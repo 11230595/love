@@ -43,6 +43,7 @@
     
     <!-- 农历阳历互转开始 -->
     <div class="container">
+    <h3>农历阳历互转</h3>
       <div class="jumbotron" id="content">
 		   <div class="form-group">
                 <label for="dtp_input1" class="col-md-2 control-label">选择年份</label>
@@ -73,9 +74,10 @@
       </div>
     </div> <!-- /container -->
     <!-- 农历阳历互转结束 -->
-
+	
 	<!-- 是不是闰年start -->
     <div class="container">
+      <h3>计算闰年</h3>
       <div class="jumbotron" id="content">
 		   <div class="form-group">
                 <label for="dtp_input1" class="col-md-2 control-label">输入年份</label>
@@ -104,6 +106,7 @@
 
 	<!-- 日期计算开始 -->
     <div class="container">
+      <h3>日期计算</h3>
       <div class="jumbotron" id="content">
 		   <div class="form-group">
                 <label for="dtp_input1" class="col-md-2 control-label">开始时间</label>

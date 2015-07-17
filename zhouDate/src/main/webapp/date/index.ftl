@@ -130,10 +130,12 @@
       <div class="jumbotron" id="content">
 		   <div class="form-group">
                 <label for="dtp_input1" class="col-md-2 control-label">输入年份</label>
-                <input size="30" type="text" value="" id="yearId" placeholder="2015" >
+                <div class="col-xs-3">
+                	<input size="30" type="text" class="form-control" value="" id="yearId" placeholder="2015" >
+				</div>
 				<input type="hidden" id="convertDate" value="" /><br/>
             </div>
-            <div class="form-group" style="margin-left:16.8%;margin-top:30px;">
+            <div class="form-group" style="margin-left:18%;margin-top:30px;">
                 <input type="button" onclick="isLeapYear();" class="btn btn-info" value="开始计算">
             </div>
             

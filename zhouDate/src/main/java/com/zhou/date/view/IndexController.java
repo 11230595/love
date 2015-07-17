@@ -62,7 +62,7 @@ public class IndexController {
 	}
 	
 	/**
-	 * 执行
+	 * 农历阳历互转
 	 * @return
 	 */
 	@RequestMapping(value="convertDate",method={RequestMethod.GET,RequestMethod.POST})
@@ -83,12 +83,15 @@ public class IndexController {
 	}
 	
 	/**
-	 * 执行
+	 * 计算是不是闰年
 	 * @return
 	 */
 	@RequestMapping(value="isLeapYear",method={RequestMethod.GET,RequestMethod.POST})
 	public @ResponseBody Map<String, Object> isLeapYear(@RequestParam String time) {
 		Map<String, Object> map = new HashMap<String, Object>();
+		if(time.length()>4){
+			time = time.substring(0,4);
+		}
 		boolean isLeapYear = Lunar.isLeapYear(Integer.parseInt(time));
 		if(isLeapYear){
 			map.put("respMsg", time + "年<font color='red'>是</font>闰年");

@@ -54,7 +54,7 @@
                 </div>
 				<input type="hidden" id="convertDate" value="" /><br/>
             </div>
-            <div class="form-group" style="margin-left:11%">
+            <div class="form-group" style="margin-left:16.8%">
                 <p style="text-align:left;">
                 	<input type="button" onclick="convertDate(0);" class="btn btn-primary" value="农历转阳历">
                 	<input type="button" onclick="convertDate(1);" class="btn btn-info" value="阳历转农历">
@@ -84,10 +84,8 @@
                 <input size="30" type="text" value="" id="yearId" placeholder="2015" >
 				<input type="hidden" id="convertDate" value="" /><br/>
             </div>
-            <div class="form-group" style="margin-left:11%">
-                <p style="text-align:left;">
-                	<input type="button" onclick="isLeapYear();" class="btn btn-info" value="开始计算">
-                </p>
+            <div class="form-group" style="margin-left:16.8%">
+                <input type="button" onclick="isLeapYear();" class="btn btn-info" value="开始计算">
             </div>
             
             <div id="isLeapYearDiv"></div>
@@ -126,7 +124,7 @@
                 </div>
 				<input type="hidden" id="dtp_input2" value="" /><br/>
             </div>
-            <div class="form-group" style="margin-left:11%">
+            <div class="form-group" style="margin-left:16.8%">
                 <p class="help-block">提示：日历下面的今天可以直接定位到当前时间</p>
                 <p style="text-align:left;"><input type="button" onclick="submit();" class="btn btn-default" value="计算"></p>
             </div>

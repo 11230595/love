@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.zhou.date.constants.Constants;
+import com.zhou.date.utils.Lunar;
 
 @Controller
 public class IndexController {
@@ -57,6 +58,42 @@ public class IndexController {
 	public @ResponseBody Map<String, Object> execute(@RequestParam String startTime, @RequestParam String endTime) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("date", main(startTime, endTime));
+		return map;
+	}
+	
+	/**
+	 * 执行
+	 * @return
+	 */
+	@RequestMapping(value="convertDate",method={RequestMethod.GET,RequestMethod.POST})
+	public @ResponseBody Map<String, Object> convertDate(@RequestParam String time, @RequestParam int flag) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		String date = "";
+		if(flag == 0){
+			date = Lunar.lunarTosolar(time);
+			map.put("date", date);
+			map.put("respMsg","农历：" +  time + "对应的阳历是：");
+		}else{
+			date = Lunar.solarTolunar(time);
+			map.put("date", date);
+			map.put("respMsg","阳历：" +  time + "对应的农历是：");
+		}
+		return map;
+	}
+	
+	/**
+	 * 执行
+	 * @return
+	 */
+	@RequestMapping(value="isLeapYear",method={RequestMethod.GET,RequestMethod.POST})
+	public @ResponseBody Map<String, Object> isLeapYear(@RequestParam String time) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		boolean isLeapYear = Lunar.isLeapYear(Integer.parseInt(time));
+		if(isLeapYear){
+			map.put("respMsg", time + "年<font color='red'>是</font>闰年");
+		}else{
+			map.put("respMsg", time + "年<font color='red'>不是</font>闰年");
+		}
 		return map;
 	}
 }

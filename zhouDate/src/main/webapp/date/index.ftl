@@ -39,7 +39,69 @@
         </div><!--/.nav-collapse -->
       </div>
     </nav>
+    
+    <!-- 农历阳历互转开始 -->
+    <div class="container">
+      <div class="jumbotron" id="content">
+		   <div class="form-group">
+                <label for="dtp_input1" class="col-md-2 control-label">选择年份</label>
+                <div class="input-group date form_date col-md-5" data-date="" data-date-format="yyyy-MM-dd" data-link-field="convertDate">
+                    <input class="form-control" size="16" type="text" value="" readonly>
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+					<span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+                </div>
+				<input type="hidden" id="convertDate" value="" /><br/>
+            </div>
+            <div class="form-group" style="margin-left:11%">
+                <p style="text-align:left;">
+                	<input type="button" onclick="convertDate(0);" class="btn btn-primary" value="农历转阳历">
+                	<input type="button" onclick="convertDate(1);" class="btn btn-info" value="阳历转农历">
+                </p>
+            </div>
+            
+            <div id="convertDiv"></div>
+            
+            <!-- 返回结果 -->
+		   	<div class="alert alert-success alert-dismissable" id="result" style="display:none;">
+			   <button type="button" class="close" data-dismiss="alert" 
+			      aria-hidden="true" onclick="$(this).parent().fadeOut(800);">
+			      &times;
+			   </button>
+			   <span></span>
+			</div>
+      </div>
+    </div> <!-- /container -->
+    <!-- 农历阳历互转结束 -->
 
+	<!-- 是不是闰年start -->
+    <div class="container">
+      <div class="jumbotron" id="content">
+		   <div class="form-group">
+                <label for="dtp_input1" class="col-md-2 control-label">输入年份</label>
+                <input size="30" type="text" value="" id="yearId" placeholder="2015" >
+				<input type="hidden" id="convertDate" value="" /><br/>
+            </div>
+            <div class="form-group" style="margin-left:11%">
+                <p style="text-align:left;">
+                	<input type="button" onclick="isLeapYear();" class="btn btn-info" value="开始计算">
+                </p>
+            </div>
+            
+            <div id="isLeapYearDiv"></div>
+            
+            <!-- 返回结果 -->
+		   	<div class="alert alert-success alert-dismissable" id="result" style="display:none;">
+			   <button type="button" class="close" data-dismiss="alert" 
+			      aria-hidden="true" onclick="$(this).parent().fadeOut(800);">
+			      &times;
+			   </button>
+			   <span></span>
+			</div>
+      </div>
+    </div> <!-- /container -->
+    <!-- 是不是闰年end -->
+
+	<!-- 日期计算开始 -->
     <div class="container">
       <div class="jumbotron" id="content">
 		   <div class="form-group">
@@ -62,7 +124,7 @@
             </div>
             <div class="form-group" style="margin-left:11%">
                 <p class="help-block">提示：日历下面的今天可以直接定位到当前时间</p>
-                <p style="text-align:center;"><input type="button" onclick="submit();" class="btn btn-default" value="计算"></p>
+                <p style="text-align:left;"><input type="button" onclick="submit();" class="btn btn-default" value="计算"></p>
             </div>
             
             <div id="resultDiv"></div>
@@ -77,12 +139,15 @@
 			</div>
             
             <!-- 时钟start -->
+            <!--
             <div class="form-group">
                 <#include "template/click.ftl" >
             </div>
+            -->
             <!-- 时钟end -->
       </div>
     </div> <!-- /container -->
+    <!-- 日期计算结束 -->
     
     <script type="text/javascript" src="${request.contextPath}/bootstart/js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
 	<script type="text/javascript" src="${request.contextPath}/bootstart/js/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>

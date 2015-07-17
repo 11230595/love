@@ -84,7 +84,7 @@
                 <input size="30" type="text" value="" id="yearId" placeholder="2015" >
 				<input type="hidden" id="convertDate" value="" /><br/>
             </div>
-            <div class="form-group" style="margin-left:16.8%">
+            <div class="form-group" style="margin-left:16.8%;margin-top:30px;">
                 <input type="button" onclick="isLeapYear();" class="btn btn-info" value="开始计算">
             </div>
             

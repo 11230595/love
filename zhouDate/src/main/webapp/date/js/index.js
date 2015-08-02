@@ -36,7 +36,7 @@ function submit(){
 		return;
 	}
 	
-	$.post("execute.do",{
+	$.post("execute",{
 		"startTime":startTime,
 		"endTime":endTime
 	},function(data){
@@ -56,7 +56,7 @@ function convertDate(flag){
 		return;
 	}
 	
-	$.post("convertDate.do",{
+	$.post("convertDate",{
 		"time":time,
 		"flag":flag
 	},function(data){
@@ -77,7 +77,7 @@ function isLeapYear(){
 		return;
 	}
 	
-	$.post("isLeapYear.do",{
+	$.post("isLeapYear",{
 		"time":time
 	},function(data){
 		$("#isLeapYearDiv").empty();

@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -24,17 +25,7 @@ import com.zhou.date.utils.Lunar;
 public class SignController {
 	
 	/**
-	 * 首页
-	 * @return
-	 */
-	@RequestMapping(value="index",method={RequestMethod.GET,RequestMethod.POST})
-	public ModelAndView index() {
-		ModelAndView mav = new ModelAndView("sign");
-		return mav;
-	}
-	
-	/**
-	 * 首页
+	 * 根据日期获取星座
 	 * @return
 	 */
 	@RequestMapping(value="get",method={RequestMethod.GET,RequestMethod.POST})
@@ -45,6 +36,65 @@ public class SignController {
 		}
 		
 		return findSign(time);
+	}
+	
+	/**
+	 * 星座详情
+	 * @return
+	 */
+	@RequestMapping(value="detail/{code}",method={RequestMethod.GET,RequestMethod.POST})
+	public ModelAndView signDetail(@PathVariable int code) {
+		ModelAndView mav = new ModelAndView("sign/detail");
+		mav.addObject("code", String.valueOf(code));
+		mav.addObject("name", code2Name(code));
+		return mav;
+	}
+	
+	
+	private String code2Name(int code){
+		String name = "";
+		switch (code) {
+		case 0:
+			name = "白羊座";
+			break;
+		case 1:
+			name = "金牛座";
+			break;
+		case 2:
+			name = "双子座";
+			break;
+		case 3:
+			name = "巨蟹座";
+			break;
+		case 4:
+			name = "狮子座";
+			break;
+		case 5:
+			name = "处女座";
+			break;
+		case 6:
+			name = "天秤座";
+			break;
+		case 7:
+			name = "天蝎座";
+			break;
+		case 8:
+			name = "射手座";
+			break;
+		case 9:
+			name = "魔蝎座";
+			break;
+		case 10:
+			name = "水瓶座";
+			break;
+		case 11:
+			name = "双鱼座";
+			break;
+		default:
+			break;
+		}
+		
+		return name;
 	}
 	/**
 	 * 根据日期 判断星座

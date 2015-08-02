@@ -87,3 +87,25 @@ function isLeapYear(){
 		$("#isLeapYearDiv").append(template);
 	});
 }
+
+//星座
+function findSign(flag){
+	var time = $("#sign_input1").val();
+	
+	if(time == ""){
+		alert("时间不能为空");
+		return;
+	}
+	
+	$.post("sign/get",{
+		"time":time,
+		"flag":flag
+	},function(data){
+		$("#signDiv").empty();
+		var template = $("#signResult").clone();
+		template.find("span").html("您的阳历生日为：<font color='red'> " + data.date + "</font>  \
+				您属于<a target='_blank' href='sign/detail/"+data.code+"'>"+data.name+"</a>（点击可查看详情） &nbsp;&nbsp; ---如果您喜欢该站请Ctrl+D收藏。");
+		template.fadeIn(800);
+		$("#signDiv").append(template);
+	});
+}

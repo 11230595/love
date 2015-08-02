@@ -46,7 +46,6 @@ public class IndexController {
 	@RequestMapping(value="index",method={RequestMethod.GET,RequestMethod.POST})
 	public ModelAndView index() {
 		ModelAndView mav = new ModelAndView("index");
-		mav.addObject("sellerUrl", Constants.config.getString("SELLER_URL"));
 		return mav;
 	}
 	

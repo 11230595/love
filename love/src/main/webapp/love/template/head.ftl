@@ -11,14 +11,14 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="${request.contextPath}">www.dovip.top</a>
+          <a class="navbar-brand" href="${request.contextPath}">&nbsp;一周科技&nbsp;</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li class="active" id="home"><a href="${url!'http://dovip.top'}">首页</a></li>
             <li id="about"><a href="${request.contextPath}/about">关于</a></li>
             <li><a href="http://dazhe.dovip.top/"  target="_blank">九块九包邮</a></li>
-            <li><a href="http://date.dovip.top/"  target="_blank">农历阳历互转</a></li>
+            <li><a href="http://date.dovip.top/"  target="_blank">星座</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
           	<#if user??>
@@ -30,7 +30,7 @@
 	            </li>
 	        <#else>
 	        	<li>
-	            	<a href="${request.contextPath}/user/login">我的个人中心</a>
+	            	<a href="${request.contextPath}/user/login">登录</a>
 	            </li>
 			</#if>
             <li>

@@ -10,7 +10,7 @@
     
     <link rel="icon" href="${request.contextPath}/ico/favicon.ico">
 
-    <title>dovip.top-使用信纸生成网站</title>
+    <title>开口示爱-使用信纸生成网站</title>
 
     <!-- Bootstrap core CSS -->
     <link href="${request.contextPath}/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -60,7 +60,7 @@
         <div class="item" name="item">
           <img class="second-slide" src="${request.contextPath}/images/xinzhi/x${index!0}.jpg" alt="Second slide">
           <div class="container">
-            <div class="carousel-caption" style="text-align:left;top: 55%;left:15%;color:#000;">
+            <div class="carousel-caption" style="text-align:left;top: 32%;left:15%;color:#000;">
 	              <p>&nbsp;</p>
 	              <p><input type="text" id="uName" name="uName" size="20%" class="input" placeholder="亲爱的" maxlength="8"/><p>
 	              <p><input type="text" id="content1" name="content" size="35%" class="input" maxlength="17"/><p>
@@ -68,7 +68,10 @@
 	              <p><input type="text" name="content" size="35%" class="input" maxlength="17"/><p>
 	              <p><input type="text" name="content" size="35%" class="input" maxlength="17"/><p>
 	              <p><input type="text" name="content" size="35%" class="input" maxlength="17"/><p>
-	              <p style="margin-left:28%"><input type="text" id="mName" name="mName" size="10%" class="input" placeholder="爱你的" maxlength="8"/><p>
+	              <p><input type="text" name="content" size="35%" class="input" maxlength="17"/><p>
+	              <p><input type="text" name="content" size="35%" class="input" maxlength="17"/><p>
+	              <p><input type="text" name="content" size="35%" class="input" maxlength="17"/><p>
+	              <p style="margin-left:24%"><input type="text" id="mName" name="mName" size="10%" class="input" placeholder="爱你的" maxlength="8"/><p>
             </div>
           </div>
         </div>

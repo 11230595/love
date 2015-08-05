@@ -7,6 +7,7 @@
     <meta name="author" content="zhoudong">
     <meta name="keywords" content="开口示爱-表白，浪漫之家,表白，表白网站，网站生成，创意表白网站,惊喜,dovip.top" />
 	<meta name="description" content="开口示爱-表白，浪漫之家,是一个专门生成表白类网站的网站,本站本着让所有年轻人都可以免费拥有高门槛的表白网站为目的，服务于大众" />
+    <meta property="qc:admins" content="15632262776476106470" /><!-- QQ登录验证 -->
     
     <link rel="icon" href="${request.contextPath}/ico/favicon.ico">
 
@@ -66,8 +67,9 @@
           <img class="second-slide" src="${request.contextPath}/images/aa.jpg" alt="Second slide">
           <div class="container">
             <div class="carousel-caption">
-              <h1>生活不仅仅需要是陪伴，更需要源源不断的惊喜</h1>
+              <h1>七夕送什么？上dovip.top马上开启您的浪漫惊喜之旅~</h1>
               <p>&nbsp;<p>
+              <p>下拉浏览模板&nbsp;&raquo;<p>
               <!--<p><a class="btn btn-lg btn-primary" href="#temp1" role="button">使用该模板制作</a></p>-->
             </div>
           </div>
@@ -76,7 +78,7 @@
           <img class="third-slide" src="${request.contextPath}/images/bb.jpg" alt="Third slide">
           <div class="container">
             <div class="carousel-caption">
-              <h1>或许平凡，但不平淡。</h1>
+              <h1>开口示爱，为幸福勇往直前。</h1>
               <!--<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>-->
               <!--<p><a class="btn btn-lg btn-primary" href="#temp2" role="button">使用该模板制作</a></p>-->
             </div>

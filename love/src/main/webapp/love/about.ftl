@@ -38,6 +38,7 @@
         <p>5、所有会员资料均属于隐私，本站不会泄露任何会员资料。</p>
         <p>6、联系站长:<code>chinazhoudong@gmail.com</code>。</p>
         <p>7、如果您喜欢本站请<code>Ctrl+D</code>收藏本站。</p>
+        <p>8、感谢开源社区支持，没有开源社区就没有本站。</p>
       </div>
       <!-- 地脚信息 -->
   	  <#include "template/foot.ftl">

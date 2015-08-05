@@ -16,6 +16,7 @@
 <script type="text/javascript" src="${request.contextPath}/love/2/js/garden.js"></script>
 <script type="text/javascript" src="${request.contextPath}/love/2/js/functions.js"></script>
 <script src="${request.contextPath}/love/js/count.js"></script>
+<script src="${request.contextPath}/love/js/share.js"></script>
 </head>
 
 <body bgcolor="#f6f4ea">

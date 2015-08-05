@@ -24,6 +24,7 @@
     
     <!-- Placed at the end of the document so the pages load faster -->
     <script type="text/javascript" src="${request.contextPath}/js/jquery/jquery-1.11.1.min.js"></script>
+    <script src="${request.contextPath}/love/js/share.js"></script><!-- 分享 -->
   </head>
 <!-- NAVBAR
 ================================================== -->

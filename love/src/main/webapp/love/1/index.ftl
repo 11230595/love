@@ -14,6 +14,7 @@
 <script type="text/javascript" src="${request.contextPath}/love/1/renxi/functions.js" charset="utf-8"></script>
 <script type="text/javascript" src="${request.contextPath}/love/1/renxi/love.js" charset="utf-8"></script>
 <script src="${request.contextPath}/love/js/count.js"></script>
+<script src="${request.contextPath}/love/js/share.js"></script>
 <style type="text/css">
 <!--
 .STYLE1 {

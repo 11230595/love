@@ -13,7 +13,7 @@
 	   	  <#list temps as temp>
 		      <tr>
 		         <td>${url!''}i/${temp.webCode!''}</td>
-		         <td><a href="${url!''}i/${temp.webCode!''}" target="_blank">访问</a></td>
+		         <td><a href="${url!''}i/${temp.webCode!''}" target="_blank">访问（分享）</a></td>
 		         <td><a href="javascript:void(0);" onclick="deleteWeb('${temp.id}')">删除</a></td>
 		      </tr>
 	      </#list>

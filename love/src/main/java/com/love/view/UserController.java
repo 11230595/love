@@ -23,9 +23,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.framework.core.utils.IPUtils;
 import com.love.constants.Constants;
+import com.love.entity.LoginLog;
 import com.love.entity.Template;
 import com.love.entity.User;
+import com.love.service.LoginLogService;
 import com.love.service.TemplateService;
 import com.love.service.UserService;
 
@@ -42,6 +45,8 @@ public class UserController {
 	private UserService userService;
 	@Resource
 	private TemplateService templateService;
+	@Resource
+	private LoginLogService loginLogService;
 	
 	/**
 	 * 跳转到注册页面
@@ -129,6 +134,7 @@ public class UserController {
 	public @ResponseBody Map<String, Object> signin(HttpServletRequest request,
 			@RequestParam String userCode, @RequestParam String password,@RequestParam(required=false) String returnUrl) {
 		Map<String, Object> map = new HashMap<String, Object>();
+		String ip = IPUtils.getIP(request);
 		
 		User user = userService.login(userCode,password);
 		
@@ -141,8 +147,14 @@ public class UserController {
 				map.put("returnUrl", Constants.config.getString("BASE_URL"));
 			
 			request.getSession().setAttribute("user", user);
+			
+			//日志
+			loginLogService.insert(new LoginLog(LoginLog.APP_NAME, 0, userCode, "", ip, IPUtils.getAddress(ip)));
 		}else {
 			map.put("respCode", 1);	//登陆失败
+			
+			//日志
+			loginLogService.insert(new LoginLog(LoginLog.APP_NAME, 0, userCode, "该用户不存在！", ip, IPUtils.getAddress(ip)));
 		}
 		
 		return map;
@@ -177,6 +189,9 @@ public class UserController {
 			userService.insert(user);
 		}
 		request.getSession().setAttribute("user", user);
+		//日志
+		String ip = IPUtils.getIP(request);
+		loginLogService.insert(new LoginLog(LoginLog.APP_NAME, 1, userCode, "", ip, IPUtils.getAddress(ip)));
 		
 		return "redirect:/";
 	}

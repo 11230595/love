@@ -9,7 +9,7 @@
     <result column="user_desc" property="userDesc" jdbcType="VARCHAR" />
     <result column="email" property="email" jdbcType="VARCHAR" />
     <result column="del_flag" property="delFlag" jdbcType="INTEGER" />
-    <result column="create_time" property="createTime" jdbcType="DATE" />
+    <result column="create_time" property="createTime" jdbcType="DATETIME" />
     <result column="edit_time" property="editTime" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >

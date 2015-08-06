@@ -11,6 +11,7 @@ import java.util.UUID;
 import javax.annotation.Resource;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
@@ -131,7 +132,7 @@ public class UserController {
 	 * @return
 	 */
 	@RequestMapping(value="/signin",method={RequestMethod.GET,RequestMethod.POST})
-	public @ResponseBody Map<String, Object> signin(HttpServletRequest request,
+	public @ResponseBody Map<String, Object> signin(HttpServletRequest request, HttpServletResponse response , 
 			@RequestParam String userCode, @RequestParam String password,@RequestParam(required=false) String returnUrl) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		String ip = IPUtils.getIP(request);
@@ -146,8 +147,8 @@ public class UserController {
 			else
 				map.put("returnUrl", Constants.config.getString("BASE_URL"));
 			
-			request.getSession().setAttribute("user", user);
-			
+			request.getSession().setAttribute("user", user); //session
+			addCookie(response,user.getUserId()); //cookie
 			//日志
 			loginLogService.insert(new LoginLog(LoginLog.APP_NAME, 0, userCode, "", ip, IPUtils.getAddress(ip)));
 		}else {
@@ -166,7 +167,7 @@ public class UserController {
 	 * @return
 	 */
 	@RequestMapping(value="/otherSignin",method={RequestMethod.GET,RequestMethod.POST})
-	public String otherSignin(HttpServletRequest request,
+	public String otherSignin(HttpServletRequest request, HttpServletResponse response,
 			@RequestParam String userCode,@RequestParam String openId,@RequestParam String accessToken) {
 		
 		User user = userService.findUserByUserId(openId);
@@ -188,12 +189,26 @@ public class UserController {
 			user.setDelFlag(0);
 			userService.insert(user);
 		}
-		request.getSession().setAttribute("user", user);
+		request.getSession().setAttribute("user", user); //session
+		addCookie(response,user.getUserId()); //cookie
+		
 		//日志
 		String ip = IPUtils.getIP(request);
 		loginLogService.insert(new LoginLog(LoginLog.APP_NAME, 1, user.getUserCode(), "", ip, IPUtils.getAddress(ip)));
 		
 		return "redirect:/";
+	}
+	/**
+	 * 设置cookie
+	 * @param response
+	 * @param userId
+	 */
+	private void addCookie(HttpServletResponse response,String userId){
+		Cookie cookie = new Cookie("dovip_user", userId);       //(key,value)  
+	    cookie.setPath("/");// 这个要设置  
+	    cookie.setDomain(".dovip.top");//这样设置，能实现两个网站共用  
+	    cookie.setMaxAge(365 * 24 * 60 * 60);// 不设置的话，则cookies不写入硬盘,而是写在内存,只在当前页面有用,以秒为单位  
+	    response.addCookie(cookie);         //添加第一个Cookie  
 	}
 	
 	/**
@@ -237,9 +252,21 @@ public class UserController {
 	 * @return
 	 */
 	@RequestMapping(value="/loginOut",method={RequestMethod.GET,RequestMethod.POST})
-	public @ResponseBody Map<String, Object> loginOut(HttpServletRequest request) {
+	public @ResponseBody Map<String, Object> loginOut(HttpServletRequest request,HttpServletResponse response) {
 		Map<String, Object> map = new HashMap<String, Object>();
+		//删除cookie
+		Cookie[] cookies = request.getCookies();
+		if (cookies != null){  
+		  //删除.dovip.top下面的cookie
+		  for (Cookie cookie : cookies){  
+		      cookie.setPath("/");//设置成跟写入cookies一样的  
+		      cookie.setDomain(".dovip.top");//设置成跟写入cookies一样的  
+		      cookie.setMaxAge(0);  
+		      response.addCookie(cookie);  
+		  }
+		}  
 		
+		//删除session
 		request.getSession().invalidate();
 		map.put("respCode", 0);
 		map.put("baseUrl", Constants.config.getString("BASE_URL"));

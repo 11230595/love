@@ -209,10 +209,10 @@ function v_name(){
 	}
 	
 	$.post("../user/isCode",{
-		"email":$("#name").val()
+		"userCode":$("#name").val()
 	},function(data){
 		if(!data.respMsg){
-			lineState("account","error","该邮箱已经注册，请登陆"); 
+			lineState("account","error","该用户名已经注册，请登陆"); 
 			flags[1]=false;
 			enableSubmit(false);
 		}

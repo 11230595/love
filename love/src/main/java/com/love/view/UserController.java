@@ -2,6 +2,7 @@ package com.love.view;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
+import java.net.URLEncoder;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -164,35 +165,39 @@ public class UserController {
 	/**
 	 * 其他登陆
 	 * @return
+	 * @throws UnsupportedEncodingException 
 	 */
 	@RequestMapping(value="/otherSignin",method={RequestMethod.GET,RequestMethod.POST})
 	public String otherSignin(HttpServletRequest request, HttpServletResponse response,
-			@RequestParam String userCode,@RequestParam String openId,@RequestParam String accessToken) {
+			@RequestParam String userCode,@RequestParam String openId,@RequestParam String accessToken) throws UnsupportedEncodingException {
 		
 		User user = userService.findUserByUserId(openId);
+		String ip = IPUtils.getIP(request);
 		
 		if(user == null){  //如果首次使用第三方登录本站，关联数据
 			
-			try {
-				userCode = URLDecoder.decode(userCode, "utf-8");
-			} catch (UnsupportedEncodingException e) {
-				e.printStackTrace();
-			}
+			userCode = URLDecoder.decode(userCode, "utf-8");
 			
-			user = new User();
-			user.setUserCode(userCode);
-			user.setUserId(openId);
-			user.setUsername(userCode);
-			user.setEmail(accessToken);
-			user.setCreateTime(new Date());
-			user.setDelFlag(0);
-			userService.insert(user);
+			user = userService.findUserByUserCode(userCode); //userCode是否存在
+			
+			if(user == null){
+				user = new User();
+				user.setUserCode(userCode);
+				user.setUserId(openId);
+				user.setUsername(userCode);
+				user.setEmail(accessToken);
+				user.setCreateTime(new Date());
+				user.setDelFlag(0);
+				userService.insert(user);
+			}else{
+				loginLogService.insert(new LoginLog(LoginLog.APP_NAME, 1, user.getUserCode(), userCode + "，已经有人使用，跳转到信息补充页面。", ip, IPUtils.getAddress(ip)));
+				return "redirect:/user/userInfoFill/" + URLEncoder.encode(userCode, "utf-8") + "/" + openId + "/" + accessToken;
+			}
 		}
 		request.getSession().setAttribute("user", user); //session
 		addCookie(response,user.getUserId()); //cookie
 		
 		//日志
-		String ip = IPUtils.getIP(request);
 		loginLogService.insert(new LoginLog(LoginLog.APP_NAME, 1, user.getUserCode(), "", ip, IPUtils.getAddress(ip)));
 		
 		return "redirect:/";
@@ -208,6 +213,20 @@ public class UserController {
 	    cookie.setDomain(".dovip.top");//这样设置，能实现两个网站共用  
 	    cookie.setMaxAge(365 * 24 * 60 * 60);// 不设置的话，则cookies不写入硬盘,而是写在内存,只在当前页面有用,以秒为单位  
 	    response.addCookie(cookie);         //添加第一个Cookie  
+	}
+	
+	/**
+	 * 用户名冲突跳转到重新填写用户名界面
+	 * @return
+	 * @throws UnsupportedEncodingException 
+	 */
+	@RequestMapping(value="/userInfoFill/{userCode}/{openId}/{accessToken}",method={RequestMethod.GET,RequestMethod.POST})
+	public ModelAndView userInfoFill(@PathVariable String userCode,@PathVariable String openId,@PathVariable String accessToken) throws UnsupportedEncodingException {
+		ModelAndView mav = new ModelAndView("userInfoFill"); 
+		mav.addObject("userCode",URLDecoder.decode(userCode, "utf-8"));
+		mav.addObject("openId",openId);
+		mav.addObject("accessToken",accessToken);
+		return mav; 
 	}
 	
 	/**

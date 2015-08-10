@@ -25,10 +25,26 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script type="text/javascript" src="${request.contextPath}/js/jquery/jquery-1.11.1.min.js"></script>
     <script src="${request.contextPath}/love/js/share.js"></script><!-- 分享 -->
+    
+    <!-- 首页旋转 -->
+   	<script>
+   	   var i=-30;
+	   $(function(){
+		   	var method = setInterval(function(){
+				$("body").css("transform","rotate("+i+"deg)");
+				i++;
+				if(i == 1){
+					clearInterval(method);
+				}
+			},100);
+	   });
+   	</script>
+   	<!-- 首页旋转end -->
   </head>
 <!-- NAVBAR
 ================================================== -->
-  <body>
+   <body style="transform: rotate(-30deg);"> <!--网页倾斜-->
+  <!--<body>-->
   	<!-- 头信息 -->
     <#include "template/head.ftl">
 

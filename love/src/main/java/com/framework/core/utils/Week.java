@@ -12,7 +12,7 @@ public enum Week {
     FRIDAY("星期五", "Friday", "Fri.", 5),  
     SATURDAY("星期六", "Saturday", "Sat.", 6),  
     SUNDAY("星期日", "Sunday", "Sun.", 7);  
-      
+	
     String name_cn;  
     String name_en;  
     String name_enShort;  
